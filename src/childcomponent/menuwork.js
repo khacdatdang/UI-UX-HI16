@@ -7,6 +7,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ContentCut from '@mui/icons-material/ContentCut';
 import ContentCopy from '@mui/icons-material/ContentCopy';
 import ContentPaste from '@mui/icons-material/ContentPaste';
+import { Link } from 'react-router-dom';
 
 export default function MenuWork() {
   return (
@@ -16,7 +17,11 @@ export default function MenuWork() {
           <ListItemIcon>
             <ContentCut fontSize="small" sx={{color: "white"}} />
           </ListItemIcon>
-          <ListItemText sx={{textAlign: "left"}}>Tất cả công việc</ListItemText>
+          <ListItemText sx={{textAlign: "left"}}>
+            <Link to = '/alltask'> 
+            Tất cả công việc
+            </Link>
+            </ListItemText>
         </MenuItem>
         <MenuItem>
           <ListItemIcon>
