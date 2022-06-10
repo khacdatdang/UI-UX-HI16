@@ -15,7 +15,7 @@ function Task() {
             <Header logo={logo} avatar={avatar} />
             <div className="dash-main">
                 <Navbar />
-                <AllTask/>
+                <AllTask />
             </div>
         </div>
     )
