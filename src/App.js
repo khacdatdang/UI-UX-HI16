@@ -8,6 +8,7 @@ import {
 import Home from './layout/Home/home';
 import Dash from './layout/Dash/dash';
 import Task from './layout/Task/task';
+import NewJob from './component/form/NewJob';
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/dash' element={<Dash />} />
-        <Route path = '/alltask' element = { <Task/> }/> 
+        <Route path = '/alltask' element = { <Task/> }/>
+        <Route path="/newJob" element={<NewJob/>}/>
       </Routes>
     </Router>
   );
