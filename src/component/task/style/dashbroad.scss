@@ -1,0 +1,47 @@
+:root{
+    --color: rgb(19, 179, 128);
+}
+.dashbroad{
+    background-color: aliceblue;
+    padding-top: 60px;
+    width: 100%;
+    padding-left: 20%;
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-height: 100vh;
+    position: relative;
+    .dashbroad-header{
+        width: 80%;
+        height: 50px;
+        position: fixed;
+        box-shadow: 1.5px 1.5px 1.5px 1.5px rgba($color: #000000, $alpha: 0.1);
+        display: flex;
+        button{
+            width: 25%;
+            height: 100%;
+            border: none;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            p{
+                font-size: 1.15em;
+            }
+        }
+    }
+
+    .dashbroad-main{
+        padding-top: 50px;
+        width: 100%;
+        display: flex;
+        .dashbroad-main-div{
+            width: 100%;
+        }
+    }
+}
+
+.dashbroad-btn{
+    color: var(--color);
+}
