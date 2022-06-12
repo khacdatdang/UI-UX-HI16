@@ -9,7 +9,7 @@ import DialogActions from '@mui/material/DialogActions';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import Typography from '@mui/material/Typography';
-import { Box, FormControl, InputLabel, MenuItem, OutlinedInput, Select } from '@mui/material';
+import { Box, FormControl, InputLabel, MenuItem, OutlinedInput, Select, Slide } from '@mui/material';
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     '& .MuiDialogContent-root': {
       padding: theme.spacing(2),
@@ -59,9 +59,11 @@ function AssignModal({ open, handleClose, data, handleAssign}) {
 
   const saveChange = () => {
     handleAssign(data, assignee)
+    handleClose()
     console.log(data)
   }
 
+  
   return (
     <BootstrapDialog
     onClose={handleClose}
