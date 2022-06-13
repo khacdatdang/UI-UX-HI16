@@ -1,0 +1,24 @@
+{
+    "tasks": [
+      {
+        "id": "0d6b748d",
+        "name": "Dựng dàn giáo ở công trường B2",
+        "completed": false,
+        "color": "#009688"
+      },
+      {
+        "id": "a6c37fdb",
+        "name": "Lắp đặt ống nước đoạn BMT - Quốc Lộ 1A",
+        "completed": false,
+        "color": "#009688"
+      },
+      {
+        "id": "hur7fb3",
+        "name": "Vận chuyển thiết bị tới kho 243 - T1",
+        "completed": true,
+        "color": "#009688"
+      }
+    ],
+    "theme": "dark", 
+    "length": 2
+}
