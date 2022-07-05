@@ -1,0 +1,37 @@
+.navbar{
+    width: 20%;
+    height: 100vh;
+    padding-top: 60px;
+    box-sizing: border-box;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    background-color: black;
+    color: white;
+
+    .navbar-infor{
+        background-color: rgb(0, 20, 0);
+        padding: 30px 15px;
+        display: flex;
+        img{
+            width: 50px;
+            height: 50px;
+            border-radius: 100%;
+            margin-right: 30px;
+        }
+        .navbar-infor-text{
+            p{
+                text-align: left;
+            }
+            p:last-child{
+                margin-top: 10px;
+            }
+        }
+    }
+    .navbar-div{
+        text-align: left;
+        margin-left: 10px;
+        padding: 10px;
+    }
+}

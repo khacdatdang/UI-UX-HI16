@@ -18,66 +18,56 @@ const board = {
   columns: [
     {
       id: 1,
-      title: "Backlog",
+      title: "Đã Hoàn Thành",
       backgroundColor: "#fff",
       cards: [
         {
           id: 1,
-          title: "Card title 1",
-          description: "Card content"
+          title: "Dự án A1",
+          description: "Xây dựng hệ thống cầu tuyến A1"
         },
         {
           id: 2,
-          title: "Card title 2",
-          description: "Card content"
-        },
-        {
-          id: 3,
-          title: "Card title 3",
-          description: "Card content"
+          title: "Dự án A1",
+          description: "Xây dựng đường liên thông A1->A2"
         }
       ]
     },
     {
       id: 2,
-      title: "Doing",
+      title: "Đang Thi Công",
       cards: [
         {
           id: 9,
-          title: "Card title 9",
-          description: "Card content"
+          title: "Dự án A2",
+          description: "Xây dựng hệ thống cầu A2"
         }
       ]
     },
     {
       id: 3,
-      title: "Q&A",
+      title: "Chưa Thi Công",
       cards: [
         {
           id: 10,
-          title: "Card title 10",
-          description: "Card content"
+          title: "Dự án A2",
+          description: "Xây dựng tuyến đường trên cao liên thông A2->A1"
         },
         {
           id: 11,
-          title: "Card title 11",
-          description: "Card content"
+          title: "Dự án A3",
+          description: "Xây dựng hệ thống cầu A3"
         }
       ]
     },
     {
       id: 4,
-      title: "Production",
+      title: "Bị Đình Trệ",
       cards: [
         {
           id: 12,
-          title: "Card title 12",
-          description: "Card content"
-        },
-        {
-          id: 13,
-          title: "Card title 13",
-          description: "Card content"
+          title: "Dự án A4",
+          description: "Chưa đủ nguồn vốn để thi công"
         }
       ]
     }
@@ -174,22 +164,22 @@ function DashPage() {
                         <div className="chart-infor-div">
                             <div style={{background: "#3e95cd", width: 30 + "px", height: 30 + "px"}}></div>
                             <p>Chưa làm</p>
-                            <p>49 (70%)</p>
+                            <p>50 (25%)</p>
                         </div>
                         <div className="chart-infor-div">
                             <div style={{background: "#8e5ea2", width: 30 + "px", height: 30 + "px"}}></div>
                             <p>Đang làm</p>
-                            <p>49 (70%)</p>
-                        </div>
-                        <div className="chart-infor-div">
-                            <div style={{background: "#3e95cd", width: 30 + "px", height: 30 + "px"}}></div>
-                            <p>Hoàn thành</p>
-                            <p>49 (70%)</p>
+                            <p>30 (15%)</p>
                         </div>
                         <div className="chart-infor-div">
                             <div style={{background: "#cc33ff", width: 30 + "px", height: 30 + "px"}}></div>
+                            <p>Hoàn thành</p>
+                            <p>100 (50%)</p>
+                        </div>
+                        <div className="chart-infor-div">
+                            <div style={{background: "#993333", width: 30 + "px", height: 30 + "px"}}></div>
                             <p>Khác</p>
-                            <p>49 (70%)</p>
+                            <p>20 (10%)</p>
                         </div>
                     </div>
                 </div>
@@ -197,27 +187,26 @@ function DashPage() {
                     <div style={{color: "#3e95cd"}}>
                         <p>HT ĐÚNG HẠN</p>
                         <p style={{fontWeight: "bold"}}>12</p>
-                        <p>17% công việc</p>
+                        <p>50% công việc</p>
                     </div>
                     <div style={{color: "#8e5ea2"}}>
-                        <p>HT ĐÚNG HẠN</p>
+                        <p>HT QUÁ HẠN</p>
                         <p style={{fontWeight: "bold"}}>12</p>
-                        <p>17% công việc</p>
+                        <p>10% công việc</p>
                     </div>
                     <div style={{color: "#cc33ff"}}>
-                        <p>HT ĐÚNG HẠN</p>
+                        <p>HT TRƯỚC HẠN</p>
                         <p style={{fontWeight: "bold"}}>12</p>
-                        <p>17% công việc</p>
+                        <p>40% công việc</p>
                     </div>
                     <div style={{color: "#993333"}}>
-                        <p>HT ĐÚNG HẠN</p>
+                        <p>BỊ ĐÌNH TRỆ</p>
                         <p style={{fontWeight: "bold"}}>12</p>
-                        <p>17% công việc</p>
+                        <p>25% công việc</p>
                     </div>
                 </div>
             </div>
             <UncontrolledBoard />
-            <ControlledBoard />
         </div>
     );
 }

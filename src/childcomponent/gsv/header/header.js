@@ -4,8 +4,8 @@ import ReportIcon from '@mui/icons-material/Report';
 
 // import scss
 import './style/header.scss';
-import MenuSelect from '../../childcomponent/select/select';
-import AvatarSelect from '../../childcomponent/avatar';
+import MenuSelect from '../../select/select';
+import AvatarSelect from '../../avatar';
 
 
 
