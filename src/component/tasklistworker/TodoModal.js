@@ -91,7 +91,7 @@ function TodoModal({ type, modalOpen, setModalOpen, todo }) {
             animate="visible"
             exit="exit"
           >
-            <motion.div 
+            <motion.div
               className={styles.closeButton}
               onKeyDown={() => setModalOpen(false)}
               onClick={() => setModalOpen(false)}
@@ -101,53 +101,57 @@ function TodoModal({ type, modalOpen, setModalOpen, todo }) {
               initial={{ top: 40, opacity: 0 }}
               animate={{ top: -10, opacity: 1 }}
               exit={{ top: 40, opacity: 0 }}
-             
             >
               <MdOutlineClose />
             </motion.div>
 
             <form className={styles.form} onSubmit={(e) => handleSubmit(e)}>
               <h1 className={styles.formTitle}>
-                {/* {type === 'add' ? 'Add' : 'Update'} TODO */}
-                CHI TIẾT CÔNG VIỆC 
+                {type === 'add' ? 'Add' : 'CHI TIẾT CÔNG VIỆC '}
               </h1>
-              <h3>
-                Vật liệu xây dựng:
-              </h3>
-              
-              <ol>
-                <li>Máy vữa xây trác Mac 50 </li>
-                <li>Xi măng (230 kg) </li>
-                <li>Cát (1,09 m3) </li>
-                <li>Nước (210 lít) </li>
-              </ol>
+              {type != 'add' ? (
+                <div>
+                  <h3>Vật liệu xây dựng:</h3>
 
-                {/* <input
-                  type="text"
-                  id="title"
-                  value={title}
-                  onChange={(e) => setTitle(e.target.value)}
-                /> */}
-              
+                  <ol>
+                    <li>Máy vữa xây trác Mac 50 </li>
+                    <li>Xi măng (230 kg) </li>
+                    <li>Cát (1,09 m3) </li>
+                    <li>Nước (210 lít) </li>
+                  </ol>
+                </div>
+              ) : null}
 
-              {/* <label htmlFor="type">
-                Status
-                <select
-                  id="type"
-                  value={status}
-                  onChange={(e) => setStatus(e.target.value)}
-                >
-                  <option value="incomplete">Incomplete</option>
-                  <option value="complete">Completed</option>
-                </select>
-              </label> */}
+              {type == 'add' ? (
+                <div>
+                  <label htmlFor="title">
+                    Title
+                    <input
+                      type="text"
+                      id="title"
+                      value={title}
+                      onChange={(e) => setTitle(e.target.value)}
+                    />
+                  </label>
+                  <label htmlFor="type">
+                    Status
+                    <select
+                      id="type"
+                      value={status}
+                      onChange={(e) => setStatus(e.target.value)}
+                    >
+                      <option value="incomplete">Incomplete</option>
+                      <option value="complete">Completed</option>
+                    </select>
+                  </label>
+                </div>
+              ) : null}
               <div className={styles.buttonContainer}>
-                {/* <Button type="submit" variant="primary">
-                  {type === 'add' ? 'Add Task' : 'Update Task'}
-                </Button> */}
-                <Button variant="secondary" onClick={() => setModalOpen(false)}>
-                  Thoát
-                </Button>
+                {type == 'add' ? (
+                  <Button type="submit" variant="primary">
+                    Add Task
+                  </Button>
+                ) : null}
               </div>
             </form>
           </motion.div>
