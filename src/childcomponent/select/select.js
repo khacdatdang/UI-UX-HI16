@@ -1,9 +1,11 @@
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import { makeStyles } from "@material-ui/core";
+import { hover } from "@testing-library/user-event/dist/hover";
+import "./select.scss";
 
 const useStyles = makeStyles({
-    select: {
+    button: {
         '&:focus': {
             background: '#f00',
         },
@@ -36,27 +38,30 @@ function MenuSelect(props) {
     const classes = useStyles();
 
     return(
-        <Select
-            value={""}
-            displayEmpty
-            OutlinedInput
-            inputProps={{ 
-                'aria-label': 'Without label',
-                classes: {
-                    select: classes.select,
-                    icon: classes.icon,
-                    root: classes.root,
-                }, 
-            }}
-            disableUnderline
-        >
-            <MenuItem value="">
-                {props.value}
-            </MenuItem>
-            <MenuItem value={10}>Ten</MenuItem>
-            <MenuItem value={20}>Twenty</MenuItem>
-            <MenuItem value={30}>Thirty</MenuItem>
-        </Select>
+        <button className="select--btn" onClick={() => window.location.href = props.link}>{props.value}</button>
     );
 }
 export default MenuSelect;
+
+{
+    /**
+     * <Select
+    value={""}
+    displayEmpty
+    OutlinedInput
+    inputProps={{ 
+        'aria-label': 'Without label',
+        classes: {
+            select: classes.select,
+            icon: classes.icon,
+            root: classes.root,
+        }, 
+    }}
+    disableUnderline
+>
+    <MenuItem value="">
+        {props.value}
+    </MenuItem>
+</Select>
+     */
+}

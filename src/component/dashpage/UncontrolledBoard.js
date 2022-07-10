@@ -6,12 +6,12 @@ const board = {
   columns: [
     {
       id: 1,
-      title: "Backlog",
+      title: "Đã Hoàn Thành",
       cards: [
         {
           id: 1,
-          title: "Card title 1",
-          description: "Card content"
+          title: "Xây dựng hệ thống cầu A1",
+          description: ""
         },
         {
           id: 2,

@@ -52,7 +52,7 @@ const BootstrapDialogTitle = (props) => {
 function AssignModal({ open, handleClose, data, handleAssign}) {
   console.log(data)
   const [assignee, setassignee] = React.useState('')
-  const [staff, setstaff] = React.useState(['Dang Khac Dat', 'Vo Hoang Nam', 'Phung Xuan Quan', 'Vu Ngoc Minh', 'Nguyen Hoang Son'])
+  const [staff, setstaff] = React.useState(['Đơn vị A1', 'Đơn vị A2', 'Đơn vị A3', 'Đơn vị A4', 'Đơn vị A5'])
   const handleChange = (event) => {
     setassignee(event.target.value)
   };

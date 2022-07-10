@@ -9,28 +9,10 @@ import ContentCopy from '@mui/icons-material/ContentCopy';
 import ContentPaste from '@mui/icons-material/ContentPaste';
 import { Link } from 'react-router-dom';
 
-export default function MenuWork() {
+export default function MenuWorkGSV() {
   return (
     <Paper sx={{ width: 320, maxWidth: '100%', background: "rgb(0, 20, 0)", color: "white" }}>
       <MenuList>
-        <MenuItem>
-          <ListItemIcon>
-            <ContentCut fontSize="small" sx={{color: "white"}} />
-          </ListItemIcon>
-          <ListItemText sx={{textAlign: "left"}} onClick={() => window.location.href = "/alltask"}>Tất cả công việc</ListItemText>
-        </MenuItem>
-        <MenuItem>
-          <ListItemIcon>
-            <ContentCopy fontSize="small" sx={{color: "white"}} />
-          </ListItemIcon>
-          <ListItemText sx={{textAlign: "left"}} onClick={() => window.location.href = "/dash"}>Quản lý tiến độ</ListItemText>
-        </MenuItem>
-        <MenuItem>
-          <ListItemIcon>
-            <ContentPaste fontSize="small" sx={{color: "white"}} />
-          </ListItemIcon>
-          <ListItemText sx={{textAlign: "left"}} onClick={() => window.location.href = "/newJob"}>Giao việc</ListItemText>
-        </MenuItem>
         <MenuItem>
           <ListItemIcon>
             <ContentPaste fontSize="small" sx={{color: "white"}} />
@@ -41,7 +23,7 @@ export default function MenuWork() {
           <ListItemIcon>
             <ContentPaste fontSize="small" sx={{color: "white"}} />
           </ListItemIcon>
-          <ListItemText sx={{textAlign: "left"}}>Quản lý KPI</ListItemText>
+          <ListItemText sx={{textAlign: "left"}}>Báo cáo</ListItemText>
         </MenuItem>
       </MenuList>
     </Paper>
