@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { AnimatePresence, motion } from 'framer-motion';
 import toast from 'react-hot-toast';
 import { addTodo, updateTodo } from '../../slices/todoSlice';
-import styles from '../../styles/modules/app.module.scss';
+import styles from '../../styles/modules/modal.module.scss';
 import Button from './Button';
 
 const dropIn = {
@@ -91,7 +91,7 @@ function TodoModal({ type, modalOpen, setModalOpen, todo }) {
             animate="visible"
             exit="exit"
           >
-            <motion.div
+            <motion.div 
               className={styles.closeButton}
               onKeyDown={() => setModalOpen(false)}
               onClick={() => setModalOpen(false)}
@@ -101,24 +101,36 @@ function TodoModal({ type, modalOpen, setModalOpen, todo }) {
               initial={{ top: 40, opacity: 0 }}
               animate={{ top: -10, opacity: 1 }}
               exit={{ top: 40, opacity: 0 }}
+             
             >
               <MdOutlineClose />
             </motion.div>
 
             <form className={styles.form} onSubmit={(e) => handleSubmit(e)}>
               <h1 className={styles.formTitle}>
-                {type === 'add' ? 'Add' : 'Update'} TODO
+                {/* {type === 'add' ? 'Add' : 'Update'} TODO */}
+                CHI TIẾT CÔNG VIỆC 
               </h1>
-              <label htmlFor="title">
-                Title
-                <input
+              <h3>
+                Vật liệu xây dựng:
+              </h3>
+              
+              <ol>
+                <li>Máy vữa xây trác Mac 50 </li>
+                <li>Xi măng (230 kg) </li>
+                <li>Cát (1,09 m3) </li>
+                <li>Nước (210 lít) </li>
+              </ol>
+
+                {/* <input
                   type="text"
                   id="title"
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
-                />
-              </label>
-              <label htmlFor="type">
+                /> */}
+              
+
+              {/* <label htmlFor="type">
                 Status
                 <select
                   id="type"
@@ -128,13 +140,13 @@ function TodoModal({ type, modalOpen, setModalOpen, todo }) {
                   <option value="incomplete">Incomplete</option>
                   <option value="complete">Completed</option>
                 </select>
-              </label>
+              </label> */}
               <div className={styles.buttonContainer}>
-                <Button type="submit" variant="primary">
+                {/* <Button type="submit" variant="primary">
                   {type === 'add' ? 'Add Task' : 'Update Task'}
-                </Button>
+                </Button> */}
                 <Button variant="secondary" onClick={() => setModalOpen(false)}>
-                  Cancel
+                  Thoát
                 </Button>
               </div>
             </form>

@@ -21,7 +21,26 @@ function AppHeader() {
       <Button variant="primary" onClick={() => setModalOpen(true)}>
         Add Task
       </Button>
-      <SelectButton
+
+      <div className = "filer-bar">
+        <Button id="status"
+          onClick={(e) => updateFilter(e)}
+          value="all">
+          All
+        </Button>
+        <Button  id="status"
+          onClick={(e) => updateFilter(e)}
+          value="incomplete">
+        Incomplete
+        </Button >
+        <Button id="status"
+          onClick={(e) => updateFilter(e)}
+          value="complete" >
+        Completed
+        </Button>
+      </div>
+      
+      {/* <SelectButton
         id="status"
         onChange={(e) => updateFilter(e)}
         value={filterStatus}
@@ -29,7 +48,7 @@ function AppHeader() {
         <option value="all">All</option>
         <option value="incomplete">Incomplete</option>
         <option value="complete">Completed</option>
-      </SelectButton>
+      </SelectButton> */}
       <TodoModal type="add" modalOpen={modalOpen} setModalOpen={setModalOpen} />
     </div>
   );
