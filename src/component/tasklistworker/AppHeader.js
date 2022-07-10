@@ -22,24 +22,28 @@ function AppHeader() {
         Add Task
       </Button>
 
-      <div className = "filer-bar">
-        <Button id="status"
-          onClick={(e) => updateFilter(e)}
-          value="all">
+      <div className="filer-bar flex gap-4">
+        <Button id="status" onClick={(e) => updateFilter(e)} value="all">
           All
         </Button>
-        <Button  id="status"
+        <Button
+          id="status"
           onClick={(e) => updateFilter(e)}
-          value="incomplete">
-        Incomplete
-        </Button >
-        <Button id="status"
+          //className="bg-yellow-500 w-40 rounded-lg"
+          value="incomplete"
+        >
+          Incomplete
+        </Button>
+        <Button
+          id="status"
           onClick={(e) => updateFilter(e)}
-          value="complete" >
-        Completed
+          value="complete"
+          //className="bg-lime-600 w-40 rounded-lg"
+        >
+          Completed
         </Button>
       </div>
-      
+
       {/* <SelectButton
         id="status"
         onChange={(e) => updateFilter(e)}

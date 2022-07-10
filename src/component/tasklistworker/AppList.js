@@ -9,9 +9,11 @@ function AppList() {
   return (
     <>
       <div className="container">
-        <PageTitle>TODO List</PageTitle>
+        <PageTitle>Danh sách công việc</PageTitle>
         <div className={styles.app__wrapper}>
-          <AppHeader />
+          <div className="pb-4">
+            <AppHeader />
+          </div>
           <AppContent />
         </div>
       </div>

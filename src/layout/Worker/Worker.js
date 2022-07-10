@@ -1,13 +1,28 @@
 import React from 'react';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import LogoutIcon from '@mui/icons-material/Logout';
 import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
 import AddTaskIcon from '@mui/icons-material/AddTask';
-import { amber } from '@mui/material/colors';
+import { grey } from '@mui/material/colors';
+import AppList from '../../component/tasklistworker/AppList';
+import Avatar from '@mui/material/Avatar';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
 
 export default function Worker() {
-  const colorCheckin = amber[400];
+  const [open, setOpen] = React.useState(false);
+
+  const handleLogOutOpen = () => {
+    setOpen(true);
+  };
+
+  const handleLogOutClose = () => {
+    setOpen(false);
+  };
+
   return (
     <div
       className="w-screen h-screen flex justify-center drop-shadow-xl"
@@ -19,15 +34,16 @@ export default function Worker() {
             <div className="grid grid-rows-5 grid-flow-col gap-4 h-full justify-items-center">
               <div className="row-span-3 self-end">
                 <Avatar
-                  sx={{ width: 300, height: 300 }}
-                  src="../../../public/avatar.png"
+                  sx={{ width: 300, height: 300, bgcolor: grey[100] }}
+                  src="/avatarworkerv2.png"
+                  variant="rounded"
                 />
               </div>
               <div className="row-span-1 self-end">
                 <p className="text-3xl font-bold">Nguyễn Văn A</p>
               </div>
               <div className="row-span-1">
-                <p className="text-xl font-bold">Công nhân</p>
+                <p className="text-xl font-bold italic">Công nhân</p>
               </div>
             </div>
           </div>
@@ -57,15 +73,39 @@ export default function Worker() {
                   variant="outlined"
                   color="error"
                   startIcon={<LogoutIcon />}
+                  onClick={handleLogOutOpen}
                 >
                   Đăng xuất
                 </Button>
+                <Dialog
+                  open={open}
+                  onClose={handleLogOutClose}
+                  aria-labelledby="alert-dialog-title"
+                  aria-describedby="alert-dialog-description"
+                >
+                  <DialogTitle id="alert-dialog-title">
+                    {'Logout ?'}
+                  </DialogTitle>
+                  <DialogContent>
+                    <DialogContentText id="alert-dialog-description">
+                      Are you sure, do you want to logout?
+                    </DialogContentText>
+                  </DialogContent>
+                  <DialogActions>
+                    <Button onClick={handleLogOutClose}>No</Button>
+                    <Button onClick={handleLogOutClose} autoFocus>
+                      Yes
+                    </Button>
+                  </DialogActions>
+                </Dialog>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div className="basis-8/12">02</div>
+      <div className="basis-8/12 flex justify-center pt-10 h-screen w-full">
+        <AppList />
+      </div>
     </div>
   );
 }
