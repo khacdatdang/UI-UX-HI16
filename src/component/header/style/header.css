@@ -1,0 +1,34 @@
+:root {
+  --color: rgb(19, 179, 128);
+}
+
+.header {
+  position: fixed;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 60px;
+  padding-left: 50px;
+}
+.header .header-logo {
+  width: 20%;
+}
+.header .header-menu {
+  width: 65%;
+}
+.header .header-navbar {
+  width: 15%;
+  align-items: center;
+  display: flex;
+}
+.header .header-navbar .header-navbar-report {
+  margin-right: 20px;
+}
+.header .header-navbar .header-navbar-alert {
+  margin-right: 10px;
+}
+
+.header {
+  background-color: var(--color);
+}/*# sourceMappingURL=header.css.map */

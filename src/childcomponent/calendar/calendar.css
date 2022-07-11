@@ -1,0 +1,27 @@
+.calendar {
+  width: 97%;
+  margin: 10px;
+  background-color: white;
+  border-top: 4px solid green;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+}
+.calendar .calendar-header {
+  width: 100%;
+  height: 55px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 25px;
+  box-sizing: border-box;
+}
+.calendar hr {
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.calendar .calendar-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0px;
+}/*# sourceMappingURL=calendar.css.map */
