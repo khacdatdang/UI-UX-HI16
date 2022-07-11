@@ -49,10 +49,10 @@ function TodoItem({ todo }) {
 
   return (
     <>
-      <motion.div className={styles.item} variants={child} >
+      <motion.div className={styles.item} variants={child}>
         <div className={styles.todoDetails}>
-          <CheckButton checked={checked} handleCheck={handleCheck}/>
-          <div className={styles.texts} >
+          <CheckButton checked={checked} handleCheck={handleCheck} />
+          <div className={styles.texts} onClick={() => handleUpdate()}>
             <p
               className={getClasses([
                 styles.todoText,
