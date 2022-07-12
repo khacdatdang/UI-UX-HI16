@@ -12,6 +12,8 @@ import NewJob from './component/form/NewJob';
 import Group from './layout/Group/group';
 import Employee from './component/group/employee';
 import GSV from './layout/GSV/gsv';
+import AppList from './component/tasklistworker/AppList';
+import Worker from './layout/Worker/Worker';
 
 function App() {
   return (
@@ -26,6 +28,8 @@ function App() {
         <Route path="/a2/kpi" element={<Employee group={"A2"} />}/>
         <Route path="/a3/kpi" element={<Employee group={"A3"} />}/>
         <Route path="/gsv" element={<GSV />} />
+        <Route path="/AppList" element={<AppList/>}/>
+        <Route path="/worker" element={<Worker/>}/>
       </Routes>
     </Router>
   );
