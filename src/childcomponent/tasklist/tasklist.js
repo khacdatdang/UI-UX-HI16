@@ -19,15 +19,7 @@ import EditTaskModal from '../editTaskModal/editTaskModal';
 
 export default function TaskList() {
   const [dummyData, setdummyData] = useState([
-    {
-      title: 'Báo cáo doanh thu ',
-      state: '',
-      start : '',
-      end: '',
-      assignee: '',
-      status : 'Chưa thực hiện',
-      evaluation : {volumn : '',quality : '', process :'',mark : '',summary : '', date : ''}
-    },
+
     {
       title: 'Kiểm tra hợp đồng ',
       state: '',
