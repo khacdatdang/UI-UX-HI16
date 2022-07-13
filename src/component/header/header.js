@@ -18,11 +18,11 @@ function Header(props) {
             <div className="header-menu">
               <MenuSelect value={<b>OFFICE</b>} link={"/"} />
               <MenuSelect value={<b>WORK</b>} link={"/alltask"} />
-              <MenuSelect value={<b>CRM</b>} />
-              <MenuSelect value={<b>HRM</b>} />
-              <MenuSelect value={<b>KPI</b>} />
-              <MenuSelect value={<b>ADMIN</b>} />
-              <MenuSelect value={<b>HELP</b>} />
+              {/* <MenuSelect value={<b>CRM</b>} />
+              <MenuSelect value={<b>HRM</b>} /> */}
+              <MenuSelect value={<b>KPI</b>} link={"/kpi"} />
+              {/* <MenuSelect value={<b>ADMIN</b>} />
+              <MenuSelect value={<b>HELP</b>} /> */}
             </div>
             <div className="header-navbar">
               <div className="header-navbar-report">

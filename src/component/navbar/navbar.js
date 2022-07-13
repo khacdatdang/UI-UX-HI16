@@ -11,7 +11,7 @@ function Navbar() {
             <div className="navbar-infor">
                 <img src={avatar} alt="" />
                 <div className="navbar-infor-text">
-                    <p style={{fontWeight: "bold"}}>Giám Đốc Nhỏ</p>
+                    <p style={{fontWeight: "bold"}}>Giám Đốc </p>
                     <p style={{fontSize: 12 + "px"}}>Chưa Chấm Công</p>
                 </div>
             </div>

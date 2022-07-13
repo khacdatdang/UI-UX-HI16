@@ -31,7 +31,7 @@ function App() {
         <Route path="/a3/kpi" element={<Employee group={"A3"} />}/>
         <Route path="/gsv" element={<GSV />} />
         <Route path="/kpi" element={<KPI />} />
-        <Route path="/create_kpi" element={<CreateKPI />} />
+        <Route path="/create_kpi"  element={<CreateKPI />} />
         <Route path="/AppList" element={<AppList/>}/>
         <Route path="/worker" element={<Worker/>}/>
       </Routes>

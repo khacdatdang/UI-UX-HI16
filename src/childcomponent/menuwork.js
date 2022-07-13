@@ -41,7 +41,7 @@ export default function MenuWork() {
           <ListItemIcon>
             <ContentPaste fontSize="small" sx={{color: "white"}} />
           </ListItemIcon>
-          <ListItemText sx={{textAlign: "left"}}>Quản lý KPI</ListItemText>
+          <ListItemText sx={{textAlign: "left"}} onClick={() => window.location.href = "/kpi"}>Quản lý KPI</ListItemText>
         </MenuItem>
       </MenuList>
     </Paper>
