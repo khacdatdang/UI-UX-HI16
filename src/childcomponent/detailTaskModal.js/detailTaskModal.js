@@ -41,7 +41,7 @@ const Item = styled(Paper)(({ theme }) => ({
 
   const marks = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
-function EditTaskModal({open, handleClose, data}) {
+function DetailTaskModal({open, handleClose, data}) {
   console.log(data)
   const [status, setstatus] = React.useState(data.status)
   const [statusanchorEl, setStatusAnchorEl] = React.useState(null);
@@ -164,14 +164,24 @@ function EditTaskModal({open, handleClose, data}) {
                 </Typography>
                 <Paper elevation={1}>
                     <List sx = {{ marginBottom: 2}}>
-                        <ListItem>
-                            <ListItemAvatar>
-                            {data.assignee ? <AccountCircleIcon/> : " "}
-                            </ListItemAvatar>
-                            <ListItemText>
-                                {data.assignee ? data.assignee : " "}
-                            </ListItemText>
-                        </ListItem>
+                        {
+                            data.assignee ? 
+                            data.assignee.map((item) => {
+                                return (
+                                    <ListItem>
+                                    <ListItemAvatar>
+                                    {item.assignee ? <AccountCircleIcon/> : " "}
+                                    </ListItemAvatar>
+                                    <ListItemText>
+                                        {item.assignee ? item.assignee : " "}
+                                    </ListItemText>
+                                </ListItem>
+                                )
+                            } 
+                           ) 
+                           : ""
+                        }
+                       
                     </List>
                 </Paper>
                
@@ -201,10 +211,10 @@ function EditTaskModal({open, handleClose, data}) {
                     Thông tin người giao việc 
                 </Typography>
                 <Typography variant="subtitle2" gutterBottom component="div" sx = {{marginTop : 1}} >
-                    Người giao : {data.assignee}
+                    Người giao : Đặng Khắc Đạt
                 </Typography>
                 <Typography variant="subtitle2" gutterBottom component="div" sx = {{marginTop : 1}} >
-                    Ngày giao : {data.start}
+                    Ngày giao : {data.start_date}
                 </Typography>
 
                 <Divider/>
@@ -356,10 +366,13 @@ function EditTaskModal({open, handleClose, data}) {
 
             <Grid item xs = {12} md = {7}>
                 <Paper elevation = {1} sx = {{padding : 3}}>
-                    <Typography variant="subtitle1" gutterBottom component="div" sx = {{fontWeight : 'bold'}}>
+                    <Typography variant="h6" gutterBottom component="div" sx = {{fontWeight : 'bold'}}>
                         {data.title}
                     </Typography>
-                    <Typography variant="subtitle2" gutterBottom component="div" >
+                    <Typography variant="subtitle1" gutterBottom component="div" sx = {{marginBottom: 5}}>
+                        Khách hàng: {data.customer}
+                    </Typography>
+                    {/* <Typography variant="subtitle2" gutterBottom component="div" >
                         Trong dự án: {data.title}
                     </Typography>
                     <Typography variant="subtitle2" gutterBottom component="div" >
@@ -367,7 +380,7 @@ function EditTaskModal({open, handleClose, data}) {
                     </Typography>
                     <Typography variant="subtitle2" gutterBottom component="div" >
                         Chế độ: {data.title}
-                    </Typography>
+                    </Typography> */}
 
                     <Grid container spacing = {1}>
                         <ThemeProvider theme = {theme}>
@@ -396,16 +409,18 @@ function EditTaskModal({open, handleClose, data}) {
                     </Grid>
                     <Grid container spacing = {1}>
                         <Grid item md = {2}>
-                        <Button variant="outlined" disabled style={{maxWidth: '90px', maxHeight: '30px', minWidth: '30px', minHeight: '30px'}}>16h</Button>
+                        <Button variant="outlined" disabled style={{maxWidth: '90px', maxHeight: '30px', minWidth: '30px', minHeight: '30px', textDecoration : 'none'}}>
+                            {Math.ceil((new Date(data.end_date).getTime() - new Date(data.start_date).getTime()) / (1000 * 3600 * 24))} ngày
+                            </Button>
                         </Grid>
                         <Grid item md = {2}>
-                        <Button variant="outlined" disabled style={{maxWidth: '90px', maxHeight: '30px', minWidth: '30px', minHeight: '30px'}}>{data.start}</Button>
+                        <Button variant="outlined" disabled style={{maxWidth: '90px', maxHeight: '30px', minWidth: '30px', minHeight: '30px', fontSize: '12px', padding : '0px'}}>{data.start_date}</Button>
                         </Grid>
                         <Grid item md = {2}>
-                        <Button variant="outlined" disabled style={{maxWidth: '90px', maxHeight: '30px', minWidth: '30px', minHeight: '30px'}}>{data.end}</Button>
+                        <Button variant="outlined" disabled style={{maxWidth: '90px', maxHeight: '30px', minWidth: '50px', minHeight: '30px', fontSize: '12px', padding : '0px'}}>{data.end_date}</Button>
                         </Grid>
                         <Grid item md = {2}>
-                        <Button variant="contained" aria-describedby={statusid} onClick={handleClickStatusAnchor} style={{maxWidth: '100px', maxHeight: '30px', minWidth: '30px', minHeight: '30px', fontSize : '12px', textTransform: 'none', padding : '0px'}}>{data.status}</Button>
+                        <Button variant="contained" aria-describedby={statusid} onClick={handleClickStatusAnchor} style={{maxWidth: '100px', maxHeight: '30px', minWidth: '30px', minHeight: '30px', fontSize : '12px', textTransform: 'none', padding : '0px'}}>{!data.status ? "Chưa thực hiện" : data.status}</Button>
                         </Grid>
                         {/* Pop over for update state  */}
                         <Popover
@@ -523,19 +538,19 @@ function EditTaskModal({open, handleClose, data}) {
                     <SegmentIcon/>
                     <Typography variant = "subtitle1" sx ={{fontWeight : 'bold'}}> Mô tả </Typography>
                 </Stack>
-                <TextField fullWidth  id="fullWidth" margin = "dense" label = "Mô tả" />
+                <Typography variant = "subtitle1" guttterBottom >{data.description}</Typography>
 
-                <Stack direction="row" spacing={2} sx = {{marginTop : 4, marginBottom : 2}}>
+                {/* <Stack direction="row" spacing={2} sx = {{marginTop : 4, marginBottom : 2}}>
                     <CheckBoxIcon/>
                     <Typography variant = "subtitle1" sx ={{fontWeight : 'bold'}}> Việc cần làm </Typography>
-                </Stack>
+                </Stack> */}
                 </Paper>
             </Grid>
 
 
             <Grid item xs = {12} md = {2}>
                 <Paper elevation = {1} sx = {{padding : 3}}>
-                    <Button variant = 'contained' color = 'error'>{ data.status} </Button>
+                    <Button variant = 'contained' color = 'error'  style={{textTransform: 'none'}}> Chỉnh sửa công việc  </Button>
                 </Paper>
             </Grid>
         </Grid>
@@ -544,4 +559,4 @@ function EditTaskModal({open, handleClose, data}) {
   )
 }
 
-export default EditTaskModal
+export default DetailTaskModal
