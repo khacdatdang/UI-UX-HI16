@@ -16,6 +16,7 @@ import AppList from './component/tasklistworker/AppList';
 import Worker from './layout/Worker/Worker';
 import KPI from './layout/KPI/KPI';
 import CreateKPI from './layout/KPI/CreateKPI';
+import WorkerDashboard from './layout/Worker/WorkerDashboard';
 
 function App() {
   return (
@@ -32,8 +33,8 @@ function App() {
         <Route path="/gsv" element={<GSV />} />
         <Route path="/kpi" element={<KPI />} />
         <Route path="/create_kpi"  element={<CreateKPI />} />
-        <Route path="/AppList" element={<AppList/>}/>
         <Route path="/worker" element={<Worker/>}/>
+        <Route path="/worker/dashboard" element={<WorkerDashboard/>}/>
       </Routes>
     </Router>
   );
