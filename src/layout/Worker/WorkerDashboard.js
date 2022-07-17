@@ -12,8 +12,9 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { AiOutlineDashboard } from 'react-icons/ai';
+import DashboardWorker from '../../component/DashboardWorker/dashboardWorker';
 
-export default function Worker() {
+export default function WorkerDashboard() {
   const [open, setOpen] = React.useState(false);
   const colorTeal = teal[500];
 
@@ -114,7 +115,7 @@ export default function Worker() {
         </div>
       </div>
       <div className="basis-8/12 flex justify-center pt-10 h-screen w-full">
-        <AppList />
+        <DashboardWorker />
       </div>
     </div>
   );
