@@ -75,7 +75,7 @@ export default function WorkerDashboard() {
                     startIcon={<FormatListBulletedIcon fontSize="large" />}
                     className="w-3/4 self-center"
                   >
-                    <p className="text-xl font-bold">Công việc</p>
+                    <a href="/worker/tasklist" className="text-xl font-bold">Công việc</a>
                   </Button>
                 </div>
               </div>

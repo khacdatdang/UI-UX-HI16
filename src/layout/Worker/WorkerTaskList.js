@@ -13,7 +13,7 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { AiOutlineDashboard } from 'react-icons/ai';
 
-export default function Worker() {
+export default function WorkerTaskList() {
   const [open, setOpen] = React.useState(false);
   const colorTeal = teal[500];
 
@@ -74,7 +74,7 @@ export default function Worker() {
                     startIcon={<FormatListBulletedIcon fontSize="large" />}
                     className="w-3/4 self-center"
                   >
-                    <p className="text-xl font-bold">Công việc</p>
+                    <a href="/worker/tasklist" className="text-xl font-bold">Công việc</a>
                   </Button>
                 </div>
               </div>
