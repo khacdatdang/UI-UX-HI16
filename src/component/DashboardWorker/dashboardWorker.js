@@ -5,7 +5,7 @@ import { BiTask, BiTaskX } from 'react-icons/bi';
 
 function DashboardWorker() {
   return (
-    <div>
+    <div className="container">
       <PageTitle>Dashboard</PageTitle>
 
       {/* Thong ke cong viec */}
@@ -74,12 +74,6 @@ function DashboardWorker() {
           </div>
         </div>
       </div>
-
-      
-      <div className="">
-
-      </div>
-
     </div>
   );
 }
