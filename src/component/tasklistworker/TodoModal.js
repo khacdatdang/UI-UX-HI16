@@ -57,7 +57,7 @@ function TodoModal({ type, modalOpen, setModalOpen, todo }) {
             id: uuid(),
             title,
             status,
-            time: parseInt(new Date().toLocaleString()),
+            time: new Date(),
           })
         );
         toast.success('Task added successfully');
@@ -141,7 +141,7 @@ function TodoModal({ type, modalOpen, setModalOpen, todo }) {
                       onChange={(e) => setStatus(e.target.value)}
                     >
                       <option value="incomplete">Incomplete</option>
-                      <option value="complete">Completed</option>
+                      <option value="Pending approval">Pending approval</option>
                     </select>
                   </label>
                 </div>
