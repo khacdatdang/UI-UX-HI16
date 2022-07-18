@@ -25,7 +25,7 @@ export default function KPI() {
           <Typography sx={{ width: '50%', flexShrink: 0 }}>
             Dự án xây cầu đường A1
           </Typography>
-          <Typography sx={{ color: 'text.secondary' }}>Dealine: 9/2022</Typography>
+          <Typography sx={{ color: 'text.secondary' }}>Deadline: 6/2022 (Completed)</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
@@ -45,7 +45,7 @@ export default function KPI() {
           <Typography sx={{ width: '50%', flexShrink: 0 }}>
             Dự án bảo trì đường ống A1
           </Typography>
-          <Typography sx={{ color: 'text.secondary' }}>Dealine: 9/2022</Typography>
+          <Typography sx={{ color: 'text.secondary' }}>Deadline: 5/2022 (Completed)</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
@@ -56,6 +56,49 @@ export default function KPI() {
           </Typography>
         </AccordionDetails>
       </Accordion>
+
+      <Accordion expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel3bh-content"
+          id="panel3bh-header"
+        >
+          <Typography sx={{ width: '50%', flexShrink: 0 }}>
+            Dự án xây cầu đường A1
+          </Typography>
+          <Typography sx={{ color: 'text.secondary' }}>Deadline: 6/2022 (Completed)</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            <div className='set-kpi'>
+                <TransferList />
+                <FormDialog />
+            </div>
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion expanded={expanded === 'panel4'} onChange={handleChange('panel4')}>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel4bh-content"
+          id="panel4Xbh-header"
+        >
+          <Typography sx={{ width: '50%', flexShrink: 0 }}>
+            Dự án bảo trì đường ống A1
+          </Typography>
+          <Typography sx={{ color: 'text.secondary' }}>Deadline: 5/2022 (Completed)</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            <div className='set-kpi'>
+                <TransferList />
+                <FormDialog />
+            </div>
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+
+      
     </div>
   );
 }
