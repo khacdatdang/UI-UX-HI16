@@ -18,29 +18,38 @@ function AppHeader() {
 
   return (
     <div className={styles.appHeader}>
-      <Button variant="primary" onClick={() => setModalOpen(true)}>
+      {/* <Button variant="primary" onClick={() => setModalOpen(true)}>
         Add Task
-      </Button>
+      </Button> */}
 
-      <div className="filer-bar flex gap-4">
+      <div className="w-full filer-bar flex gap-4 justify-center">
         <Button id="status" onClick={(e) => updateFilter(e)} value="all">
           All
         </Button>
         <Button
           id="status"
           onClick={(e) => updateFilter(e)}
-          //className="bg-yellow-500 w-40 rounded-lg"
+          className="bg-cyan-400 w-40 rounded-lg font-semibold"
           value="incomplete"
         >
-          Incomplete
+           Incomplete
+        </Button>
+        <Button
+          id="status"
+          onClick={(e) => updateFilter(e)}
+          value="pending_approval"
+          className="bg-violet-400 w-48 rounded-lg font-semibold"
+          // className="bg-amber-300 w-48 rounded-lg font-semibold"
+        >
+          Pending approval
         </Button>
         <Button
           id="status"
           onClick={(e) => updateFilter(e)}
           value="complete"
-          //className="bg-lime-600 w-40 rounded-lg"
+          className="bg-lime-500 w-40 rounded-lg font-semibold"
         >
-          Completed
+          Complete
         </Button>
       </div>
 

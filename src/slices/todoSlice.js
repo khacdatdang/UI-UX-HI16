@@ -1,14 +1,34 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { v4 as uuid } from 'uuid';
 
 const getInitialTodo = () => {
+
   // getting todo list
-  const localTodoList = window.localStorage.getItem('todoList');
+  var localTodoList = window.localStorage.getItem('todoList');
   // if todo list is not empty
   if (localTodoList) {
     return JSON.parse(localTodoList);
+  }else{
+    const tmpList = [
+      {
+        id: uuid(),
+        title: "Xay dung cot so 1",
+        status: "incomplete",
+        time: new Date(2021, 6, 25),
+      },
+      {
+        id: uuid(),
+        title: "Xay dung cot so 2",
+        status: "complete",
+        time: new Date(2021, 6, 24),
+      }
+    ]
+    window.localStorage.setItem('todoList', JSON.stringify(tmpList));
+    localTodoList = window.localStorage.getItem('todoList');
+    return JSON.parse(localTodoList);
   }
-  window.localStorage.setItem('todoList', []);
-  return [];
+  // window.localStorage.setItem('todoList', []);
+  // return [];
 };
 
 const initialValue = {

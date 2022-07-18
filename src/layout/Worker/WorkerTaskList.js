@@ -3,7 +3,7 @@ import Button from '@mui/material/Button';
 import LogoutIcon from '@mui/icons-material/Logout';
 import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
 import AddTaskIcon from '@mui/icons-material/AddTask';
-import { grey } from '@mui/material/colors';
+import { grey, teal } from '@mui/material/colors';
 import AppList from '../../component/tasklistworker/AppList';
 import Avatar from '@mui/material/Avatar';
 import Dialog from '@mui/material/Dialog';
@@ -11,9 +11,11 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import { AiOutlineDashboard } from 'react-icons/ai';
 
-export default function Worker() {
+export default function WorkerTaskList() {
   const [open, setOpen] = React.useState(false);
+  const colorTeal = teal[500];
 
   const handleLogOutOpen = () => {
     setOpen(true);
@@ -53,6 +55,14 @@ export default function Worker() {
                 <div className="flex flex-col gap-4 justify-center h-full">
                   <Button
                     variant="contained"
+                    startIcon={<AiOutlineDashboard fontSize="large" />}
+                    className="w-3/4 self-center"
+                    sx={{ bgcolor: colorTeal }}
+                  >
+                    <a href="/worker/dashboard" className="text-xl font-bold">Dashboard</a>
+                  </Button>
+                  <Button
+                    variant="contained"
                     startIcon={<AddTaskIcon fontSize="large" />}
                     className="w-3/4 self-center"
                   >
@@ -64,7 +74,7 @@ export default function Worker() {
                     startIcon={<FormatListBulletedIcon fontSize="large" />}
                     className="w-3/4 self-center"
                   >
-                    <p className="text-xl font-bold">Công việc</p>
+                    <a href="/worker/tasklist" className="text-xl font-bold">Công việc</a>
                   </Button>
                 </div>
               </div>

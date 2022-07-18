@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import toast from 'react-hot-toast';
 import React, { useEffect, useState } from 'react';
 import { MdDelete, MdEdit } from 'react-icons/md';
+import { HiBadgeCheck } from 'react-icons/hi';
 import { useDispatch } from 'react-redux';
 import { deleteTodo, updateTodo } from '../../slices/todoSlice';
 import styles from '../../styles/modules/todoItem.module.scss';
@@ -24,7 +25,7 @@ function TodoItem({ todo }) {
   const [updateModalOpen, setUpdateModalOpen] = useState(false);
 
   useEffect(() => {
-    if (todo.status === 'complete') {
+    if (todo.status === 'pending_approval') {
       setChecked(true);
     } else {
       setChecked(false);
@@ -34,7 +35,7 @@ function TodoItem({ todo }) {
   const handleCheck = () => {
     setChecked(!checked);
     dispatch(
-      updateTodo({ ...todo, status: checked ? 'incomplete' : 'complete' })
+      updateTodo({ ...todo, status: checked ? 'incomplete' : 'pending_approval' })
     );
   };
 
@@ -51,12 +52,12 @@ function TodoItem({ todo }) {
     <>
       <motion.div className={styles.item} variants={child}>
         <div className={styles.todoDetails}>
-          <CheckButton checked={checked} handleCheck={handleCheck} />
+          {todo.status !== "complete" ? <CheckButton checked={checked} handleCheck={handleCheck} /> :<HiBadgeCheck size={35} color="green"/>}
           <div className={styles.texts} onClick={() => handleUpdate()}>
             <p
               className={getClasses([
                 styles.todoText,
-                todo.status === 'complete' && styles['todoText--completed'],
+                todo.status === "pending_approval" && styles['todoText--completed'],
               ])}
             >
               {todo.title}
