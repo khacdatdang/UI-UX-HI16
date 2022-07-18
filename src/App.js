@@ -18,6 +18,7 @@ import KPI from './layout/KPI/KPI';
 import CreateKPI from './layout/KPI/CreateKPI';
 import WorkerDashboard from './layout/Worker/WorkerDashboard';
 import AllEmployees from './component/group/allemployees';
+import Report from './layout/GSV/report';
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
         <Route path="/A2/employee" element={<AllEmployees group={"A2"} />}/>
         <Route path="/A3/employee" element={<AllEmployees group={"A3"} />}/>
         <Route path="/gsv" element={<GSV />} />
+        <Route path="/gsv/report" element={<Report />} />
         <Route path="/kpi" element={<KPI />} />
         <Route path="/create_kpi"  element={<CreateKPI />} />
         <Route path="/worker/tasklist" element={<WorkerTaskList/>}/>

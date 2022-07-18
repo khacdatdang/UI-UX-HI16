@@ -23,7 +23,7 @@ export default function MenuWorkGSV() {
           <ListItemIcon>
             <ContentPaste fontSize="small" sx={{color: "white"}} />
           </ListItemIcon>
-          <ListItemText sx={{textAlign: "left"}}>Báo cáo</ListItemText>
+          <Link to={"/gsv/report"}> <ListItemText sx={{textAlign: "left"}}>Báo cáo</ListItemText></Link>
         </MenuItem>
       </MenuList>
     </Paper>
