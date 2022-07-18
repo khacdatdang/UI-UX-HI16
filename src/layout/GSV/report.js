@@ -1,4 +1,4 @@
-import { InboxOutlined, PlusOutlined, UploadOutlined } from '@ant-design/icons';
+import { CheckOutlined, InboxOutlined, PlusOutlined, UploadOutlined } from '@ant-design/icons';
 import {
     Button,
     Checkbox,
@@ -8,6 +8,7 @@ import {
     Form,
     Input,
     InputNumber,
+    notification,
     Progress,
     Radio,
     Rate,
@@ -20,6 +21,7 @@ import {
     Upload,
 } from 'antd';
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 const { Option } = Select;
 const formItemLayout = {
     labelCol: {
@@ -43,6 +45,7 @@ const problems = [
     'Thiếu nhân công', 'Không đủ nguyên, vật liêu', 'Ảnh hưởng thời tiết xấu', 'Phương tiện vận chuyển khó khăn'
 ]
 const Report = () => {
+    const navigate = useNavigate();
     const [items, setItems] = useState(problems);
     const [name, setName] = useState('');
 
@@ -50,6 +53,21 @@ const Report = () => {
         setName(event.target.value);
     };
 
+    const openNotification = () => {
+        notification.open({
+          message: 'Gửi báo cáo thành công',
+          description:
+            'Bạn đã gửi báo cáo tiến độ thành công',
+          icon: (
+            <CheckOutlined
+              style={{
+                color: 'green',
+              }}
+            />
+          ),
+        });
+      };
+      
     const addItem = (e) => {
         e.preventDefault();
         setItems([...items, name || `New item ${index++}`]);
@@ -198,8 +216,11 @@ const Report = () => {
                         offset: 6,
                     }}
                 >
-                    <Button type="ghost" htmlType="submit">
-                        Submit
+                    <Button type="ghost" htmlType="submit" onClick={()=>{
+                        openNotification()
+                        navigate("/gsv")
+                    }}>
+                        Gửi
                     </Button>
                 </Form.Item>
             </Form>
