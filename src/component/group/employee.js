@@ -4,6 +4,7 @@ import { Box, ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import KPI from './kpi';
+import { Link } from 'react-router-dom';
 
 function Employee(props){
 
@@ -39,7 +40,7 @@ function Employee(props){
             color: "white", display: "flex", justifyContent: "space-between" }}>
                 <ListItem disablePadding>
                     <ListItemButton>
-                        <PeopleAltIcon />
+                        <Link to={"../"+props.group+"/employee"}>  <PeopleAltIcon /></Link>
                     </ListItemButton>
                 </ListItem>
             </Box>
