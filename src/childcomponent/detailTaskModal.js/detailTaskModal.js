@@ -164,28 +164,23 @@ function DetailTaskModal({open, handleClose, data}) {
                 </Typography>
                 <Paper elevation={1}>
                     <List sx = {{ marginBottom: 2}}>
-                        {
-                            data.assignee ? 
-                            data.assignee.map((item) => {
-                                return (
-                                    <ListItem>
-                                    <ListItemAvatar>
-                                    {item.assignee ? <AccountCircleIcon/> : " "}
-                                    </ListItemAvatar>
-                                    <ListItemText>
-                                        {item.assignee ? item.assignee : " "}
-                                    </ListItemText>
-                                </ListItem>
-                                )
-                            } 
-                           ) 
-                           : ""
-                        }
-                       
+                    {data.assignee.length != 0 ? 
+                        data.assignee.map((item) => { return (
+                            <ListItem>
+                                <ListItemAvatar>
+                                    <AccountCircleIcon/>
+                                </ListItemAvatar>
+                                <ListItemText>
+                                    {item}
+                                </ListItemText>
+                            </ListItem>
+                        )})
+                        : " "
+                    }
                     </List>
                 </Paper>
                
-                <Button variant = 'text' sx = {{textTransform: 'none', marginBottom: 2}}>Bạn muốn thay đổi người thực hiện ? </Button>
+    
                 <Divider/>
 
                 <Typography variant="subtitle1" gutterBottom component="div" sx = {{marginTop : 2, fontWeight : 'bold'}} >
@@ -194,17 +189,17 @@ function DetailTaskModal({open, handleClose, data}) {
                 <Paper elevation={1}>
                     <List sx = {{ marginBottom: 2}}>
                         <ListItem>
-                            {/* <ListItemAvatar>
-                            {data.assignee ? <AccountCircleIcon/> : " "}
+                            <ListItemAvatar>
+                            {data.observer ? <AccountCircleIcon/> : " "}
                             </ListItemAvatar>
                             <ListItemText>
-                                {data.assignee ? data.assignee : " "}
-                            </ListItemText> */}
+                                {data.observer ? data.observer : " "}
+                            </ListItemText>
                         </ListItem>
                     </List>
                 </Paper>
 
-                <Button variant = 'text' sx = {{textTransform: 'none', marginBottom: 2}}>Bạn muốn thay đổi người đánh giá  </Button>
+                
                 <Divider/>
 
                 <Typography variant="subtitle1" gutterBottom component="div" sx = {{marginTop : 2, fontWeight : 'bold'}} >
@@ -230,13 +225,13 @@ function DetailTaskModal({open, handleClose, data}) {
                 </Stack>
                
                 <Typography variant="subtitle2" gutterBottom component="div" sx = {{marginTop : 1}} >
-                    Khối lượng:        Chưa đánh giá 
+                    Khối lượng:       {data.evaluation.volumn}
                 </Typography>
                 <Typography variant="subtitle2" gutterBottom component="div" sx = {{marginTop : 1}} >
-                    Tiến độ:           Chưa đánh giá 
+                    Tiến độ:           {data.evaluation.process}
                 </Typography>
                 <Typography variant="subtitle2" gutterBottom component="div" sx = {{marginTop : 1}} >
-                    Chất lượng:        Chưa đánh giá 
+                    Chất lượng:       {data.evaluation.quality}
                 </Typography>
                 <Button variant = 'text' aria-describedby={evaluationid} onClick={handleClickEvaluationAnchor}  sx = {{textTransform: 'none', marginBottom: 2}}>Bạn muốn thay đổi đánh giá  </Button>
                 

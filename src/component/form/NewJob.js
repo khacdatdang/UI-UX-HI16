@@ -14,7 +14,10 @@ import {
   TimePicker,
   Tag,
   Upload,
+  notification
 } from 'antd';
+import { CheckOutlined, InboxOutlined, PlusOutlined } from '@ant-design/icons';
+import { useNavigate } from 'react-router-dom';
 import { UploadOutlined } from '@ant-design/icons';
 import { Link } from "react-router-dom";
 import { Typography } from '@mui/material';
@@ -23,27 +26,34 @@ const { RangePicker } = DatePicker;
 const { TextArea } = Input;
 const { Option } = Select;
 
+
+
 const NewJob = () => {
   
   const [componentDisabled, setComponentDisabled] = useState(false);
   const [taskList, settaskList] = useState([])
+  const navigate = useNavigate();
 
   useEffect(() => {
     settaskList(JSON.parse(localStorage.getItem("taskList")))
-    console.log(taskList);
+    console.log(JSON.parse(localStorage.getItem("taskList")).length);
   }, [])
 
-  const [newTask, setnewTask] = useState({id : taskList.length + 1, 
+  const [newTask, setnewTask] = useState(
+      {id : JSON.parse(localStorage.getItem("taskList")).length + 1, 
       evaluation : {volumn : '',
       quality : '',
-      process :'',
+      process : '',
       mark : '',
       summary : '',
-      date : ''}
-          })  
+      date : ''}})  
   const children = [];
-  children.push(<Option value = "Nguyễn Văn A">Nguyễn Văn A</Option>)
-  children.push(<Option value = "Lê Văn B">Lê Văn B</Option>)
+  children.push(<Option value = "Đặng Khắc Đạt">Đặng Khắc Đạt</Option>)
+  children.push(<Option value = "Võ Hoàng Nam">Võ Hoàng Nam</Option>)
+  children.push(<Option value = "Vũ Ngọc Minh">Vũ Ngọc Minh</Option>)
+  children.push(<Option value = "Nguyễn Hoàng Sơn">Nguyễn Hoàng Sơn</Option>)
+  children.push(<Option value = "Phùng Xuân Quân">Phùng Xuân Quân</Option>)
+
 
   const reviewer = [];
   reviewer.push(<Option value = "Nguyễn Văn A">Nguyễn Văn A</Option>)
@@ -90,11 +100,41 @@ const NewJob = () => {
   const handleCheckBox = (e, name) => {
     setnewTask({...newTask, [name]: e.target.checked})
   }
+
+  const openNotification = () => {
+        notification.open({
+          message: 'Tạo công việc mới thành công',
+          description:
+            'Đã thêm công việc mới',
+          icon: (
+            <CheckOutlined
+              style={{
+                color: 'green',
+              }}
+            />
+          ),
+        });
+      };
   const handleSubmitTask = e => {
-    // e.preventDefault()
-    settaskList([...taskList, newTask])
+    // e.preve-ntDeault()
+    const task_list = taskList
+    task_list.push(newTask)
+    console.log(task_list);
     localStorage.setItem("taskList", JSON.stringify(taskList))
+    setnewTask({id : newTask.id + 1, 
+      evaluation : {volumn : '',
+      quality : '',
+      process :'',
+      mark : '',
+      summary : '',
+      date : ''}})
+    openNotification()
+    navigate("/alltask")
   }
+  const onFinishFailed = (errorInfo) => {
+    console.log('Failed:', errorInfo);
+  };
+
   return (
     <div>
       <Typography variant = "h4"  style = {{marginTop: 5, marginLeft: 300, marginBottom: 20}} gutterBottm> Tạo công việc mới</Typography>
@@ -111,6 +151,7 @@ const NewJob = () => {
         }}
         onValuesChange={onFormLayoutChange}
         onFinish = {handleSubmitTask}
+        onFinishFailed={onFinishFailed}
         disabled={componentDisabled}
       >
         <Form.Item label="Công việc mẫu" name = "sample_task">
@@ -119,22 +160,22 @@ const NewJob = () => {
             <Option>Quản lý</Option>
           </Select>
         </Form.Item>
-        <Form.Item required={true} label="Tiêu đề" name = "title">
+        <Form.Item rules={[{ required: true, message: 'Cần nhập tiêu đề công việc' }]} label="Tiêu đề" name = "title">
           <Input name ="title" onChange = {handleInput}/>
         </Form.Item>
         {/* <Form.Item label="Điểm" name = "mark">
           <InputNumber onChange={(value) => {handleChange("mark", value)}}/>
         </Form.Item> */}
-        <Form.Item name = "start_date" label="Ngày bắt đầu">
+        <Form.Item rules={[{ required: true, message: 'Cần nhập thời gian bắt đầu' }]} name = "start_date" label="Ngày bắt đầu">
           <DatePicker onChange = {(date, dateString) => {handleChangeDate("start_date", dateString)}}/>
         </Form.Item>
-        <Form.Item name = "end_date" label="Ngày hết hạn">
+        <Form.Item rules={[{ required: true, message: 'Cần nhập thời gian kết thúc' }]} required={true} name = "end_date" label="Ngày hết hạn">
           <DatePicker onChange = {(date, dateString) => {handleChangeDate("end_date", dateString)}}/>
         </Form.Item>
         <Form.Item name = "description" label="Mô tả">
           <TextArea name = "description" onChange = {handleInput} />
         </Form.Item>
-        <Form.Item name = "assignee" label="Người thực hiện">
+        <Form.Item rules={[{ required: true, message: 'Cần chọn người thực hiện' }]} name = "assignee" label="Người thực hiện">
           <Select
             mode="multiple"
             allowClear
@@ -147,8 +188,9 @@ const NewJob = () => {
           {/* <Checkbox>Mỗi người tạo công việc</Checkbox> */}
         </Form.Item>
 
-        <Form.Item name = "observer" label="Người theo dõi">
+        <Form.Item rules={[{ required: true, message: 'Cần chọn người giám sát' }]} name = "observer" label="Người theo dõi">
           <Select
+            mode="multiple"
             allowClear
             style={{ width: '100%' }}
             placeholder="Please select"
@@ -258,20 +300,21 @@ const NewJob = () => {
           <Checkbox  onChange={(e) => {handleCheckBox(e, "isImportant")}}  />
         </Form.Item>
 
-        <div>
-          <Form.Item style={{ float: 'right', marginRight: '5px', marginBottom: 10 }}>
-            <Button type="primary" htmlType="submit">Lưu và đóng</Button>
+        {/* <div> */}
+          <Form.Item style={{ float: 'right', paddingBottom: '20px', paddingRight : '30px', fontSize: '20px' }}>
+            <Button type="link" htmlType="submit" size = 'large'>Lưu và đóng</Button>
           </Form.Item>
           {/* <Form.Item style={{ float: 'right', marginRight: '5px' }}>
             <Button type='primary'>Lưu và mở chi tiết</Button>
 
           </Form.Item> */}
-          <Form.Item style={{ float: 'right', marginRight: '5px' }}>
+          <Form.Item style={{ float: 'right' }}>
             <Link to = "/alltask">
-              <Button type='primary'>Hủy </Button>
+              <Button type='link' size = 'large'>Hủy </Button>
             </Link>
           </Form.Item>
-        </div>
+          <br></br>
+        {/* </div> */}
 
 
       </Form>
